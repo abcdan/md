@@ -4,7 +4,7 @@ $domain = "https://md.langezaal.io";
 $description = "Welcome to my awesome blog!";
 
 // Debug flag (true for development, false for production)
-$debug = true;
+$debug = false;
 
 if ($debug) {
     error_reporting(E_ALL);
