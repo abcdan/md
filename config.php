@@ -1,6 +1,6 @@
 <?php
 $site_name = "My MD Blog";
-$domain = "https://md.langezaal.io";
+$domain = "https://abcdan.fyi";
 $description = "Welcome to my awesome blog!";
 
 // Debug flag (true for development, false for production)
