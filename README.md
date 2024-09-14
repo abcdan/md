@@ -90,4 +90,4 @@ MIT. Do whatever you want with it. Just don't blame me if it breaks. 😅
 Sure thing, this is my personal blog: [https://abcdan.fyi](https://abcdan.fyi)
 
 ## What's the current version?
-The current version is 1.0.0. It's the first version, so it's pretty basic. But at least it works! 🎉
+The current version is 1.0.1. It's the first version, so it's pretty basic. But at least it works! 🎉
