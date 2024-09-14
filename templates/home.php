@@ -46,11 +46,11 @@
 
     <link rel="icon" href="/content/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/assets/theme.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
 
     <link href="https://fonts.bunny.net/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <script src="/assets/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 </head>
 
 <body class="body">
