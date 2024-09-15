@@ -4,7 +4,7 @@ RewriteCond %{REQUEST_URI} ^/(assets|content)/ [NC]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f
 RewriteRule ^ - [L]
 
-RewriteRule ^sitemap\.xml$ /generate_sitemap.php [L]
+RewriteRule ^sitemap\.xml$ /sitemap.php [L]
 
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-d
