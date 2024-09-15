@@ -28,9 +28,21 @@ function get_all_articles($dir)
 function parse_article($file_path)
 {
     $content = file_get_contents($file_path);
-    list($meta_section, $markdown_content) = explode("---", $content, 2);
-    $meta = parse_meta($meta_section);
+
+    $meta_start = strpos($content, "---");
+    $meta_end = strpos($content, "---", $meta_start + 3);
+
+    if ($meta_start !== false && $meta_end !== false) {
+        $meta_section = substr($content, $meta_start + 3, $meta_end - ($meta_start + 3));
+        $markdown_content = substr($content, $meta_end + 3);
+    } else {
+        $meta_section = "";
+        $markdown_content = $content;
+    }
+
+    $meta = parse_meta(trim($meta_section));
     $html_content = markdown_to_html($markdown_content);
+    
     return [
         "meta" => $meta,
         "content" => $html_content,
@@ -40,22 +52,35 @@ function parse_article($file_path)
 function parse_article_meta($file_path)
 {
     $content = file_get_contents($file_path);
-    list($meta_section) = explode("---", $content, 2);
-    return parse_meta($meta_section);
+
+    $meta_start = strpos($content, "---");
+    $meta_end = strpos($content, "---", $meta_start + 3);
+
+    if ($meta_start !== false && $meta_end !== false) {
+        $meta_section = substr($content, $meta_start + 3, $meta_end - ($meta_start + 3));
+    } else {
+        return [];
+    }
+
+    return parse_meta(trim($meta_section));
 }
 
 function parse_meta($text)
 {
     $lines = explode("\n", trim($text));
     $meta = [];
+    
     foreach ($lines as $line) {
         if (strpos($line, ":") !== false) {
             list($key, $value) = explode(":", $line, 2);
             $meta[trim($key)] = trim($value);
         }
     }
+
     return $meta;
 }
+
+
 
 function markdown_to_html($markdown)
 {
